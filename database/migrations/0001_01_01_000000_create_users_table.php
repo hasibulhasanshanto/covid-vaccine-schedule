@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('mobile')->unique();
             $table->string('nid')->unique();
             $table->enum('gender', ['male', 'female']);
-            $table->string('status')->default(UserStatusEnum::NOT_REGISTERED);
-            $table->timestamp('registered_at')->nullable();
+            $table->string('status')->default(UserStatusEnum::REGISTERED);
+            $table->timestamp('registered_at')->default(now());
             $table->date('scheduled_date')->nullable();
             $table->timestamp('vaccinated_at')->nullable();
             // $table->timestamp('email_verified_at')->nullable();

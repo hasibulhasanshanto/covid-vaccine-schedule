@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { Link } from '@inertiajs/vue3';
+import { Link } from "@inertiajs/vue3";
 </script>
+
 <template>
     <nav
         class="bg-white fixed w-full z-20 top-0 start-0 border-b border-gray-200"
@@ -8,7 +9,7 @@ import { Link } from '@inertiajs/vue3';
         <div
             class="container flex flex-wrap items-center justify-between mx-auto p-4"
         >
-            <Link href="/" class="flex items-center space-x-3">
+            <Link :href="route('home')" class="flex items-center space-x-3">
                 <span
                     class="self-center text-2xl font-bold whitespace-nowrap text-black"
                     >COVID Vaccine</span
@@ -58,15 +59,15 @@ import { Link } from '@inertiajs/vue3';
                 >
                     <li>
                         <Link
-                            href="/"
+                            :href="route('home')"
                             class="block py-2 px-3 text-white font-semibold bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0"
                             aria-current="page"
-                        >Home
+                            >Home
                         </Link>
                     </li>
                     <li>
                         <Link
-                            href="/search"
+                            :href="route('home.search')"
                             class="block py-2 px-3 text-gray-900 font-semibold rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0"
                         >
                             Search

@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
+use App\Enums\UserStatusEnum;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -37,6 +37,8 @@ class UserVaccineRegisterRequest extends FormRequest
             'nid'               => ['required', 'string', 'max:30', 'unique:users'],
             'vaccine_center_id' => ['required'],
             'gender'            => ['required'],
+            // if there is any status from the request
+            // "status"            => ['nullable', Rule::enum(UserStatusEnum::class)],
         ];
     }
 }

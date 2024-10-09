@@ -2,10 +2,9 @@
 
 namespace App\Enums;
 
-enum UserStatusEnum: string
+enum RegistrationStatusEnum : string
 {
-    case REGISTERED = 'Registered';
-    case NOT_SCHEDULED  = 'Not scheduled';
     case SCHEDULED      = 'Scheduled';
+    case NOT_SCHEDULED  = 'Not scheduled';
     case VACCINATED     = 'Vaccinated';
 }

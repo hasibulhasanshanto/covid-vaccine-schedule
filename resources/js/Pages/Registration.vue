@@ -1,17 +1,17 @@
 <script setup>
 import { reactive } from "vue";
 import { Head, Link, useForm, router } from "@inertiajs/vue3";
-import InputError from '@/Components/InputError.vue';
-import InputLabel from '@/Components/InputLabel.vue';
-import PrimaryButton from '@/Components/PrimaryButton.vue';
-import TextInput from '@/Components/TextInput.vue';
+import InputError from "@/Components/InputError.vue";
+import InputLabel from "@/Components/InputLabel.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
+import TextInput from "@/Components/TextInput.vue";
 import GuestLayout from "@/Layouts/GuestLayout.vue";
 
 const props = defineProps({
     centers: {
         type: Array,
         required: true,
-    }
+    },
 });
 
 const form = useForm({
@@ -56,7 +56,10 @@ const vaccineRegistrationHandler = () => {
                             required
                             autofocus
                         />
-                        <InputError class="mt-2" :message="form.errors.full_name" />
+                        <InputError
+                            class="mt-2"
+                            :message="form.errors.full_name"
+                        />
                     </div>
 
                     <div>
@@ -82,11 +85,14 @@ const vaccineRegistrationHandler = () => {
                             placeholder="01XXX-XXXXXX"
                             required
                         />
-                        <InputError class="mt-2" :message="form.errors.mobile" />
+                        <InputError
+                            class="mt-2"
+                            :message="form.errors.mobile"
+                        />
                     </div>
 
                     <div>
-                        <InputLabel for="nid" value="Mobile Number" />
+                        <InputLabel for="nid" value="NID Number" />
                         <TextInput
                             v-model="form.nid"
                             type="text"
@@ -99,7 +105,10 @@ const vaccineRegistrationHandler = () => {
                     </div>
 
                     <div>
-                        <InputLabel for="vaccine_center_id" value="Vaccine Center" />
+                        <InputLabel
+                            for="vaccine_center_id"
+                            value="Vaccine Center"
+                        />
                         <select
                             v-model="form.vaccine_center_id"
                             id="vaccine_center_id"
@@ -114,7 +123,10 @@ const vaccineRegistrationHandler = () => {
                                 {{ center.name }}
                             </option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.vaccine_center_id" />
+                        <InputError
+                            class="mt-2"
+                            :message="form.errors.vaccine_center_id"
+                        />
                     </div>
 
                     <div>
@@ -128,24 +140,28 @@ const vaccineRegistrationHandler = () => {
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                        <InputError class="mt-2" :message="form.errors.gender" />
+                        <InputError
+                            class="mt-2"
+                            :message="form.errors.gender"
+                        />
                     </div>
 
-                    <button
+                    <PrimaryButton
                         type="submit"
-                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 uppercase"
+                        class="w-full text-center justify-center"
                     >
                         Register Now
-                    </button>
+                    </PrimaryButton>
                     <div
                         class="text-sm font-medium text-gray-500 dark:text-gray-300"
                     >
                         Already registered?
-                        <a
-                            href="#"
+                        <Link
+                            :href="route('home.search')"
                             class="text-blue-700 hover:underline dark:text-blue-500"
-                            >Check Status</a
                         >
+                            Check Status
+                        </Link>
                     </div>
                 </form>
             </div>

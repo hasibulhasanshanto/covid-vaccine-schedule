@@ -6,6 +6,7 @@ use Exception;
 use App\Models\User;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\Registration;
 use Illuminate\Http\Request;
 use App\Models\VaccineCenter;
 use Illuminate\Support\Facades\Log;
@@ -62,6 +63,13 @@ class HomeController extends Controller
             unset($validated['vaccine_center_id']);
             $validated['registered_at'] = now();
             $user = User::create($validated);
+
+            $register = new Registration();
+            $register->user_id = $user->id;
+            $register->vaccine_center_id = $request->vaccine_center_id;
+            $register->save();
+
+            session()->flash('success', 'Registration successful!');
             return redirect()->route('home');
         } catch (Exception $e) {
             Log::info('Something went wrong- '. $e->getMessage());
