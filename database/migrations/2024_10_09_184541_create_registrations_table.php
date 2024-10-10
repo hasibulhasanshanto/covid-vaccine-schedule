@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\UserStatusEnum;
+use Illuminate\Validation\Rule;
 use App\Enums\RegistrationStatusEnum;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,7 +22,7 @@ return new class extends Migration
             $table->foreignId('vaccine_center_id')
             ->constrained('vaccine_centers')
             ->cascadeOnDelete();
-            $table->string('status')->default(RegistrationStatusEnum::NOT_SCHEDULED);
+            $table->enum('status', RegistrationStatusEnum::values())->default(RegistrationStatusEnum::NOT_SCHEDULED);
             $table->timestamp('registered_at')->default(now());
             $table->date('scheduled_date')->nullable();
             $table->timestamp('notified_at')->nullable();

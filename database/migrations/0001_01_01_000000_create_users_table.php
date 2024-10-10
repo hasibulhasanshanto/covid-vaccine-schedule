@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\UserGenderEnum;
 use App\Enums\UserStatusEnum;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,8 +19,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('mobile')->unique();
             $table->string('nid')->unique();
-            $table->enum('gender', ['male', 'female']);
-            $table->string('status')->default(UserStatusEnum::REGISTERED);
+            $table->enum('gender', UserGenderEnum::values());
+            $table->enum('status', UserStatusEnum::values())->default(UserStatusEnum::NOT_SCHEDULED);
             $table->timestamp('registered_at')->default(now());
             $table->date('scheduled_date')->nullable();
             $table->timestamp('vaccinated_at')->nullable();
