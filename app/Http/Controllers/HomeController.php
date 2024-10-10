@@ -30,9 +30,13 @@ class HomeController extends Controller
      *
      * @return \Inertia\Response
      */
-    public function search(): Response
+    public function search(Request $request): Response
     {
-        return Inertia::render('Search');
+        $user = User::with('registration:id,user_id,status,scheduled_date')->whereNid($request->nid)->first();
+        return Inertia::render('Search', [
+            'user' => $user,
+            'paramsObj' => $request ?? null,
+        ]);
     }
 
     /**

@@ -22,4 +22,13 @@ class Registration extends Model
         'scheduled_date',
         'notified_at',
     ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'scheduled_date'  => 'date:d/m/Y'
+    ];
 }

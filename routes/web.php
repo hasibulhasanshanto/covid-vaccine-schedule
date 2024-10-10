@@ -11,6 +11,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::get('/search', 'search')->name('home.search');
     Route::get('/registration', 'showRegistration')->name('show.registration');
     Route::post('/registration', 'storeRegistration')->name('store.registration');
+
 });
 
 Route::get('/dashboard', function () {

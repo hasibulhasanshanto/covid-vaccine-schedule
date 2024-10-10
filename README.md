@@ -17,6 +17,7 @@
 
 ![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)
 ![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white) 
+![Inertia](https://img.shields.io/badge/Inertia-9553E9.svg?style=for-the-badge&logo=Inertia&logoColor=white)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) 
 
@@ -25,7 +26,7 @@
 1. **Clone or download this Repository.**
 
     ```
-    git clone https://github.com/shantojatri/covid-vaccine-distribution.git
+    git clone https://github.com/hasibulhasanshanto/covid-vaccine-schedule.git
     ```
 
 2. **Run the command**
@@ -79,12 +80,16 @@
     ```
     app run at: http://127.0.0.1:8000
     ```
+11. **Sending the queue email and notifications**
 
-11. **For production build**
+    ```
+    php artisan queue:work
+    ```
+12. **For production build**
     ```
     npm run build
     ```
 
-12. **Finally, to UNIT Test of the Service methods**
+13. **Finally, to UNIT Test of the Service methods**
     ```
     php artisan test --testsuite=Unit
