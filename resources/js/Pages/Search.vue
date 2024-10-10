@@ -21,7 +21,6 @@ const form = useForm({
 });
 
 const checkVaccineStatusHandler = () => {
-    console.log("Check Vaccine Status");
     form.get(route("home.search", searchParams), {
         onSuccess: () => {
             console.log("Searching....");
@@ -93,9 +92,9 @@ const checkVaccineStatusHandler = () => {
                     </div>
                     <div class="mt-2 mb-4 text-sm">
                         It seems that you're not registered yet. Please first
-                        register yourself with the following ling.
-                        <Link :href="route('show.registration')">
-                            Register now
+                        register yourself with the following button or
+                        <Link :href="route('show.registration')" class="underline">
+                            this link.
                         </Link>
                     </div>
                     <div class="flex">
